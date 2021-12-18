@@ -7,7 +7,7 @@
         <groupId>org.yueking.core</groupId>
         <artifactId>authorization-distributer</artifactId>
         <version>1.0</version>
-        <relativePath/>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <groupId>com.yueking.core.security</groupId>
