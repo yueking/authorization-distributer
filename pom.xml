@@ -19,7 +19,7 @@
     <modules>
         <module>base-core</module>
         <module>authorization-server</module>
-        <module> authorization-resource</module>
+        <module>authorization-resource</module>
     </modules>
 
     <properties>
