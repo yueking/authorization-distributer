@@ -41,11 +41,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Resource
     private PermissionDao permissionDao;
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
     @Primary
     @Bean
     public RemoteTokenServices remoteTokenServices() {
