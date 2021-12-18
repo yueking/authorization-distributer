@@ -119,4 +119,12 @@ public class SpringBootJpaTester {
             System.out.println(authority.getAuthority());
         }
     }
+
+    @Test
+    void initData() {
+        addPerm();
+        addRole();
+        modifyRole();
+        addAdminUser();
+    }
 }
