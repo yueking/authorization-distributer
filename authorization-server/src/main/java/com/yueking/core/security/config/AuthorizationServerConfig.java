@@ -60,20 +60,20 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         clients.inMemory()
                 .withClient("admin")
                 .secret(passwordEncoder.encode("admin"))
-                .scopes("all")
+                .scopes("all","readOnly","writeOnly")//访问范围标示，可以理解为 权限标示
                 //令牌过期时间60秒
                 .accessTokenValiditySeconds(60 * 60)
                 //刷新令牌过期时间1小时
                 .refreshTokenValiditySeconds(60 * 60 * 24 * 30)
-                //自动授权
-                .autoApprove(true)
+                //是否自动授权
+                .autoApprove(true )
                 .resourceIds("yueking_resource")
                 .redirectUris("http://localhost:8080/callback")
                 /**
                  * 授权码模式 简化模式 密码模式 客户端模式
                  * authorization_code refresh_token password client_credentials implicit
                  */
-                .authorizedGrantTypes("authorization_code","refresh_token","password");
+                .authorizedGrantTypes("authorization_code","refresh_token","password","client_credentials","implicit");
     }
 
     /**
