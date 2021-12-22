@@ -1,6 +1,5 @@
 package com.yueking.core.security.config;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,14 +12,8 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;
-import org.springframework.security.oauth2.provider.token.TokenEnhancer;
-import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
-import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 
 import javax.annotation.Resource;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * 认证服务器 server
@@ -36,16 +29,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Resource
     private UserDetailsService userDetailsService;
-
-    @Resource
-    @Qualifier("jwtTokenStore")
-    private TokenStore jwtTokenStore;
-
-    @Resource
-    private JwtAccessTokenConverter jwtAccessTokenConverter;
-
-    @Resource
-    private JwtTokenEnhancer jwtTokenEnhancer;
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
@@ -102,22 +85,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private AuthorizationCodeServices authorizationCodeServices;
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        // start 设置jwt增强内容
-        // TokenEnhancerChain chain = new TokenEnhancerChain();
-        // List<TokenEnhancer> delegates = new LinkedList<>();
-        // delegates.add(jwtTokenEnhancer);
-        // delegates.add(jwtAccessTokenConverter);
-        // chain.setTokenEnhancers(delegates);
-        // endpoints.authenticationManager(authenticationManager).userDetailsService(userDetailsService).tokenStore(jwtTokenStore).accessTokenConverter(jwtAccessTokenConverter).tokenEnhancer(chain);
-        // end 设置jwt增强内容
-
-        // start普通token配置
         endpoints
                 .authenticationManager(authenticationManager)
                 .authorizationCodeServices(authorizationCodeServices)
                 .tokenServices(tokenServices)
                 .userDetailsService(userDetailsService)
                 .allowedTokenEndpointRequestMethods(HttpMethod.POST);
-        // end普通token配置
     }
 }
