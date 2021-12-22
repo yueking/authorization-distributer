@@ -10,6 +10,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
@@ -29,7 +30,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private PasswordEncoder passwordEncoder;
 
     @Resource
-    private AuthenticationManager authenticationManager;
+    private AuthenticationManager  authenticationManager;
 
     @Resource
     private UserDetailsService userDetailsService;
@@ -66,7 +67,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 //刷新令牌过期时间1小时
                 .refreshTokenValiditySeconds(60 * 60 * 24 * 30)
                 //是否自动授权
-                .autoApprove(true )
+                .autoApprove(true)
                 .resourceIds("yueking_resource")
                 .redirectUris("http://localhost:8080/callback")
                 /**
@@ -77,10 +78,23 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     }
 
     /**
-     * 密码模式需要 重载方法
+     * 密码模式必须要重载方法需要
      * @param endpoints
      * @throws Exception
+     * 默认端点地址
+     * /oauth/authorize         授权
+     * /oauth/token             令牌
+     * /oauth/confirm_access    用户授权确认
+     * /oauth/error             错误信息
+     * /oauth/check_token       用于资源服务访问的令牌解析地址
+     * /oauth/token_key         提供公有密匙端点,配合jwt
+     * 配置项目
+     * 1.客户端信息
+     * 2.tokenService
+     *
      */
+    @Resource
+    private AuthorizationServerTokenServices tokenServices;
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         // endpoints.authenticationManager(authenticationManager).userDetailsService(userDetailsService);
@@ -90,6 +104,10 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         delegates.add(jwtTokenEnhancer);
         delegates.add(jwtAccessTokenConverter);
         chain.setTokenEnhancers(delegates);
+
+        // endpoints.authenticationManager(authenticationManager);
+        // endpoints.tokenServices(tokenServices);
+        // endpoints.userDetailsService(userDetailsService);
 
         endpoints.authenticationManager(authenticationManager).userDetailsService(userDetailsService).tokenStore(tokenStore).accessTokenConverter(jwtAccessTokenConverter).tokenEnhancer(chain);
 
