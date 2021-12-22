@@ -2,6 +2,7 @@ package com.yueking.core.security.config;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -10,6 +11,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
@@ -37,7 +39,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Resource
     @Qualifier("jwtTokenStore")
-    private TokenStore tokenStore;
+    private TokenStore jwtTokenStore;
 
     @Resource
     private JwtAccessTokenConverter jwtAccessTokenConverter;
@@ -95,21 +97,25 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
      */
     @Resource
     private AuthorizationServerTokenServices tokenServices;
+    @Resource
+    private AuthorizationCodeServices authorizationCodeServices;
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         // endpoints.authenticationManager(authenticationManager).userDetailsService(userDetailsService);
-        // 设置jwt增强内容
-        TokenEnhancerChain chain = new TokenEnhancerChain();
-        List<TokenEnhancer> delegates = new LinkedList<>();
-        delegates.add(jwtTokenEnhancer);
-        delegates.add(jwtAccessTokenConverter);
-        chain.setTokenEnhancers(delegates);
+        // start 设置jwt增强内容
+        // TokenEnhancerChain chain = new TokenEnhancerChain();
+        // List<TokenEnhancer> delegates = new LinkedList<>();
+        // delegates.add(jwtTokenEnhancer);
+        // delegates.add(jwtAccessTokenConverter);
+        // chain.setTokenEnhancers(delegates);
+        // endpoints.authenticationManager(authenticationManager).userDetailsService(userDetailsService).tokenStore(tokenStore).accessTokenConverter(jwtAccessTokenConverter).tokenEnhancer(chain);
+        // end 设置jwt增强内容
 
-        // endpoints.authenticationManager(authenticationManager);
-        // endpoints.tokenServices(tokenServices);
-        // endpoints.userDetailsService(userDetailsService);
-
-        endpoints.authenticationManager(authenticationManager).userDetailsService(userDetailsService).tokenStore(tokenStore).accessTokenConverter(jwtAccessTokenConverter).tokenEnhancer(chain);
-
+        endpoints
+                .authenticationManager(authenticationManager)
+                .authorizationCodeServices(authorizationCodeServices)
+                .tokenServices(tokenServices)
+                .userDetailsService(userDetailsService)
+                .allowedTokenEndpointRequestMethods(HttpMethod.POST);
     }
 }
