@@ -66,16 +66,16 @@ public class JwtTokenStoreConfig {
         tokenServices.setClientDetailsService(clientDetailsService);
         tokenServices.setSupportRefreshToken(true);
         // token start
-        tokenServices.setTokenStore(tokenStore);
+        // tokenServices.setTokenStore(tokenStore);
         // token end
         //jwt 增强 start
-        // tokenServices.setTokenStore(jwtTokenStore);
-        // TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
-        // List<TokenEnhancer> delegates = new LinkedList<>();
-        // delegates.add(jwtTokenEnhancer);
-        // delegates.add(jwtAccessTokenConverter);
-        // tokenEnhancerChain.setTokenEnhancers(delegates);
-        // tokenServices.setTokenEnhancer(tokenEnhancerChain);
+        tokenServices.setTokenStore(jwtTokenStore);
+        TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
+        List<TokenEnhancer> delegates = new LinkedList<>();
+        delegates.add(jwtTokenEnhancer);
+        delegates.add(jwtAccessTokenConverter);
+        tokenEnhancerChain.setTokenEnhancers(delegates);
+        tokenServices.setTokenEnhancer(tokenEnhancerChain);
         //jwt 增强 end
         tokenServices.setAccessTokenValiditySeconds(7200);//令牌默认有效2小时
         tokenServices.setRefreshTokenValiditySeconds(259200);//刷新令牌有效3天
