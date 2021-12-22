@@ -101,21 +101,22 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private AuthorizationCodeServices authorizationCodeServices;
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        // endpoints.authenticationManager(authenticationManager).userDetailsService(userDetailsService);
         // start 设置jwt增强内容
         // TokenEnhancerChain chain = new TokenEnhancerChain();
         // List<TokenEnhancer> delegates = new LinkedList<>();
         // delegates.add(jwtTokenEnhancer);
         // delegates.add(jwtAccessTokenConverter);
         // chain.setTokenEnhancers(delegates);
-        // endpoints.authenticationManager(authenticationManager).userDetailsService(userDetailsService).tokenStore(tokenStore).accessTokenConverter(jwtAccessTokenConverter).tokenEnhancer(chain);
+        // endpoints.authenticationManager(authenticationManager).userDetailsService(userDetailsService).tokenStore(jwtTokenStore).accessTokenConverter(jwtAccessTokenConverter).tokenEnhancer(chain);
         // end 设置jwt增强内容
 
+        // start普通token配置
         endpoints
                 .authenticationManager(authenticationManager)
                 .authorizationCodeServices(authorizationCodeServices)
                 .tokenServices(tokenServices)
                 .userDetailsService(userDetailsService)
                 .allowedTokenEndpointRequestMethods(HttpMethod.POST);
+        // end普通token配置
     }
 }
