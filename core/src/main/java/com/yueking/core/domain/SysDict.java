@@ -13,10 +13,8 @@ import java.io.Serializable;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-//@Data
 @Setter
 @Getter
-// @EqualsAndHashCode
 @Entity
 @Table(name = "sys_dict")
 public class SysDict implements Serializable {
