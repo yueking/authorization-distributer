@@ -1,4 +1,4 @@
-package com.yueking.core.id.dao.entity;
+package com.yueking.core.id.domain;
 
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;

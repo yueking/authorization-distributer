@@ -1,6 +1,6 @@
 package com.yueking.core.id.config;
 
-import com.yueking.core.id.dao.entity.SerialNumberEntity;
+import com.yueking.core.id.domain.SerialNumberEntity;
 import com.yueking.core.id.utils.DateUtil;
 import lombok.Data;
 import org.apache.commons.lang.StringUtils;

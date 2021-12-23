@@ -2,8 +2,9 @@ package com.yueking.core.id;
 
 
 import com.yueking.core.id.config.SerialNumberProperties;
-import com.yueking.core.id.dao.service.SerialNumberService;
+import com.yueking.core.id.service.SerialNumberService;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -18,7 +19,7 @@ class CoreIdApplicationTests {
     @Value("${serial.number.kinds.ht.name}")
     private String password;
 
-    @Resource
+    @Autowired
     private SerialNumberService serialNumberService;
 
     @Test
@@ -36,6 +37,13 @@ class CoreIdApplicationTests {
     void testId() throws Exception {
         String name1 = serialNumberService.nextSerialNumber("ht", "41");
         System.out.println(name1);
+    }
+
+    @Test
+    void testUID() throws Exception {
+        long uid = serialNumberService.getUid();
+        System.out.println(uid);
+        System.out.println(serialNumberService.parseUid(uid));
     }
 
 
