@@ -1,6 +1,7 @@
 package com.yueking.core.security.dao.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
@@ -13,10 +14,10 @@ import java.util.List;
 @Entity
 public class SysRole implements GrantedAuthority, Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    // @GenericGenerator(name = "persistenceGenerator", strategy = "increment")
+    @GeneratedValue(generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid")
     @Column(name = "role_id")
-    private Long id;
+    private String id;
     private String roleName;
     private String roleTag;
     private String roleDesc;

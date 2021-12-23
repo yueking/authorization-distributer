@@ -76,13 +76,13 @@ public class SpringBootJpaTester {
 
     @Test
     void modifyRole(){
-        SysRole role_admin = roleDao.findById(1l).get();
-        SysRole role_user = roleDao.findById(2l).get();
+        SysRole role_admin = roleDao.getSysRoleByRoleName("adminRole");
+        SysRole role_user = roleDao.getSysRoleByRoleName("userRole");
 
         List<SysPermission> permissionList = permissionDao.findAll();
         role_admin.setPermissions(permissionList);
 
-        role_user.addPermission(permissionDao.findById(4l).get());
+        role_user.addPermission(permissionDao.getSysPermissionByPermName("showPerm"));
 
         roleDao.saveAndFlush(role_admin);
         roleDao.saveAndFlush(role_user);
@@ -101,8 +101,8 @@ public class SpringBootJpaTester {
         user.setUsername("user");
         user.setPassword(passwordEncoder.encode("user"));
 
-        SysRole adminRole = roleDao.findById(1l).get();
-        SysRole userRole = roleDao.findById(2l).get();
+        SysRole adminRole = roleDao.getSysRoleByRoleName("adminRole");
+        SysRole userRole = roleDao.getSysRoleByRoleName("userRole");
 
         admin.addRole(adminRole);
         user.addRole(userRole);
