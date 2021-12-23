@@ -1,6 +1,6 @@
-package com.yueking.core.id.dao.repository;
+package com.yueking.core.id.dao;
 
-import com.yueking.core.id.dao.entity.SerialNumberEntity;
+import com.yueking.core.id.domain.SerialNumberEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

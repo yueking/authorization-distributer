@@ -1,9 +1,9 @@
-package com.yueking.core.id.dao.service.impl;
+package com.yueking.core.id.service.impl;
 
 import com.yueking.core.id.config.SerialNumberProperties;
-import com.yueking.core.id.dao.entity.SerialNumberEntity;
-import com.yueking.core.id.dao.repository.SerialNumberNodeDao;
-import com.yueking.core.id.dao.service.SerialNumberService;
+import com.yueking.core.id.domain.SerialNumberEntity;
+import com.yueking.core.id.dao.SerialNumberNodeDao;
+import com.yueking.core.id.service.SerialNumberService;
 import com.yueking.core.id.utils.DateUtil;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
