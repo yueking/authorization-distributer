@@ -25,7 +25,7 @@
     <dependencies>
         <dependency>
             <groupId>com.yueking.core.security</groupId>
-            <artifactId>base-core</artifactId>
+            <artifactId>core-security</artifactId>
             <version>1.0</version>
         </dependency>
 

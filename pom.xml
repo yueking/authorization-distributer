@@ -17,7 +17,8 @@
     </parent>
 
     <modules>
-        <module>base-core</module>
+        <module>core-id</module>
+        <module>core-security</module>
         <module>authorization-server</module>
         <module>authorization-resource</module>
     </modules>
@@ -62,6 +63,11 @@
                 <scope>test</scope>
             </dependency>
 
+            <dependency>
+                <groupId>com.baidu.fsg</groupId>
+                <artifactId>uid-generator</artifactId>
+                <version>1.0</version>
+            </dependency>
 
             <!-- 数据库连接池-->
             <dependency>
