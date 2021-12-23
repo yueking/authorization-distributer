@@ -1,23 +1,37 @@
 package com.yueking.core.id.service.impl;
 
+import com.baidu.fsg.uid.UidGenerator;
 import com.yueking.core.id.config.SerialNumberProperties;
-import com.yueking.core.id.domain.SerialNumberEntity;
 import com.yueking.core.id.dao.SerialNumberNodeDao;
+import com.yueking.core.id.domain.SerialNumberEntity;
 import com.yueking.core.id.service.SerialNumberService;
 import com.yueking.core.id.utils.DateUtil;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.text.DecimalFormat;
 
 @Service
 public class SerialNumberServiceImpl implements SerialNumberService {
-    @Resource
+    @Autowired
     private SerialNumberProperties serialNumberConfig;
 
-    @Resource
+    @Autowired
     private SerialNumberNodeDao serialNumberDao;
+
+    @Autowired
+    private UidGenerator uidGenerator;
+
+    @Override
+    public long getUid() {
+        return uidGenerator.getUID();
+    }
+
+    @Override
+    public String parseUid(long uid){
+        return uidGenerator.parseUID(uid);
+    }
 
     @Override
     public String nextSerialNumber(String name, String unitCode) throws Exception {

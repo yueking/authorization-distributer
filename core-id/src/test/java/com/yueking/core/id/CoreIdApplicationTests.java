@@ -39,6 +39,13 @@ class CoreIdApplicationTests {
         System.out.println(name1);
     }
 
+    @Test
+    void testUID() throws Exception {
+        long uid = serialNumberService.getUid();
+        System.out.println(uid);
+        System.out.println(serialNumberService.parseUid(uid));
+    }
+
 
 
 }
