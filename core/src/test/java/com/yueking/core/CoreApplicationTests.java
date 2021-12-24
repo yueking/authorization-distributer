@@ -8,6 +8,8 @@ import com.yueking.core.domain.Department;
 import com.yueking.core.domain.DictPK;
 import com.yueking.core.domain.SysDict;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -16,6 +18,7 @@ import java.util.List;
 
 @SpringBootTest
 class CoreApplicationTests {
+    Logger logger = LoggerFactory.getLogger(getClass());
     @Autowired
     private SysDictDao dictDao;
 
@@ -98,5 +101,15 @@ class CoreApplicationTests {
         root.setChildren(list);
 
         departmentDao.save(root);
+    }
+
+    @Test
+    void testLog() {
+        logger.trace("这是trace日志...");
+        logger.debug("这是debug日志...");
+        //SpringBoot默认给我们使用的是info级别的，没有指定级别的就用SpringBoot默认规定的级别；root级别
+        logger.info("这是info日志...world");
+        logger.warn("这是warn日志...");
+        logger.error("这是error日志...");
     }
 }

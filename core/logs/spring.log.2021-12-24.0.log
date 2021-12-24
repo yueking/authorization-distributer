@@ -1,0 +1,33 @@
+[1;35m2021-12-24 12:54:22[0;39m [INFO] [34morg.springframework.boot.StartupInfoLogger:55[0;39m : Starting CoreApplicationTests on yuekings-iMac.local with PID 9113 (started by yueking in /Users/yueking/Developer/workspace/authorization-distributer/core)
+[1;35m2021-12-24 12:54:22[0;39m [INFO] [34morg.springframework.boot.SpringApplication:648[0;39m : No active profile set, falling back to default profiles: default
+[1;35m2021-12-24 12:54:23[0;39m [INFO] [34morg.springframework.data.repository.config.RepositoryConfigurationDelegate:127[0;39m : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[1;35m2021-12-24 12:54:23[0;39m [INFO] [34morg.springframework.data.repository.config.RepositoryConfigurationDelegate:187[0;39m : Finished Spring Data repository scanning in 69ms. Found 3 JPA repository interfaces.
+[1;35m2021-12-24 12:54:23[0;39m [INFO] [34morg.hibernate.jpa.internal.util.LogHelper:31[0;39m : HHH000204: Processing PersistenceUnitInfo [name: default]
+[1;35m2021-12-24 12:54:23[0;39m [INFO] [34morg.hibernate.Version:44[0;39m : HHH000412: Hibernate ORM core version 5.4.31.Final
+[1;35m2021-12-24 12:54:23[0;39m [INFO] [34morg.hibernate.annotations.common.reflection.java.JavaReflectionManager:56[0;39m : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[1;35m2021-12-24 12:54:23[0;39m [INFO] [34mcom.zaxxer.hikari.HikariDataSource:110[0;39m : HikariCP - Starting...
+[1;35m2021-12-24 12:54:23[0;39m [INFO] [34mcom.zaxxer.hikari.pool.PoolBase:527[0;39m : HikariCP - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+[1;35m2021-12-24 12:54:23[0;39m [INFO] [34mcom.zaxxer.hikari.HikariDataSource:123[0;39m : HikariCP - Start completed.
+[1;35m2021-12-24 12:54:23[0;39m [INFO] [34morg.hibernate.dialect.Dialect:175[0;39m : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+[1;35m2021-12-24 12:54:24[0;39m [INFO] [34morg.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:52[0;39m : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[1;35m2021-12-24 12:54:24[0;39m [INFO] [34morg.springframework.orm.jpa.AbstractEntityManagerFactoryBean:419[0;39m : Initialized JPA EntityManagerFactory for persistence unit 'default'
+[1;35m2021-12-24 12:54:24[0;39m [INFO] [34morg.springframework.boot.StartupInfoLogger:61[0;39m : Started CoreApplicationTests in 2.216 seconds (JVM running for 2.969)
+[1;35m2021-12-24 12:54:24[0;39m [INFO] [34mcom.yueking.core.CoreApplicationTests:111[0;39m : 这是info日志...world
+[1;35m2021-12-24 12:54:24[0;39m [WARN] [31mcom.yueking.core.CoreApplicationTests:112[0;39m : 这是warn日志...
+[1;35m2021-12-24 12:54:24[0;39m [ERROR] [1;31mcom.yueking.core.CoreApplicationTests:113[0;39m : 这是error日志...
+[1;35m2021-12-24 12:54:24[0;39m [INFO] [34morg.springframework.orm.jpa.AbstractEntityManagerFactoryBean:601[0;39m : Closing JPA EntityManagerFactory for persistence unit 'default'
+[1;35m2021-12-24 12:54:24[0;39m [INFO] [34mcom.zaxxer.hikari.HikariDataSource:350[0;39m : HikariCP - Shutdown initiated...
+[1;35m2021-12-24 12:54:24[0;39m [INFO] [34mcom.zaxxer.hikari.HikariDataSource:352[0;39m : HikariCP - Shutdown completed.
+[1;35m2021-12-24 12:54:31[0;39m [INFO] [34morg.springframework.boot.StartupInfoLogger:55[0;39m : Starting CoreApplicationTests on yuekings-iMac.local with PID 9203 (started by yueking in /Users/yueking/Developer/workspace/authorization-distributer/core)
+[1;35m2021-12-24 12:54:31[0;39m [INFO] [34morg.springframework.boot.SpringApplication:648[0;39m : No active profile set, falling back to default profiles: default
+[1;35m2021-12-24 12:54:31[0;39m [INFO] [34morg.springframework.data.repository.config.RepositoryConfigurationDelegate:127[0;39m : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[1;35m2021-12-24 12:54:31[0;39m [INFO] [34morg.springframework.data.repository.config.RepositoryConfigurationDelegate:187[0;39m : Finished Spring Data repository scanning in 67ms. Found 3 JPA repository interfaces.
+[1;35m2021-12-24 12:54:31[0;39m [INFO] [34morg.hibernate.jpa.internal.util.LogHelper:31[0;39m : HHH000204: Processing PersistenceUnitInfo [name: default]
+[1;35m2021-12-24 12:54:31[0;39m [INFO] [34morg.hibernate.Version:44[0;39m : HHH000412: Hibernate ORM core version 5.4.31.Final
+[1;35m2021-12-24 12:54:31[0;39m [INFO] [34morg.hibernate.annotations.common.reflection.java.JavaReflectionManager:56[0;39m : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[1;35m2021-12-24 12:54:32[0;39m [INFO] [34mcom.zaxxer.hikari.HikariDataSource:110[0;39m : HikariCP - Starting...
+[1;35m2021-12-24 12:54:32[0;39m [INFO] [34mcom.zaxxer.hikari.pool.PoolBase:527[0;39m : HikariCP - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+[1;35m2021-12-24 12:54:32[0;39m [INFO] [34mcom.zaxxer.hikari.HikariDataSource:123[0;39m : HikariCP - Start completed.
+[1;35m2021-12-24 12:54:32[0;39m [INFO] [34morg.hibernate.dialect.Dialect:175[0;39m : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+[1;35m2021-12-24 12:54:32[0;39m [INFO] [34morg.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:52[0;39m : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[1;35m2021-12-24 12:54:32[0;39m [INFO] [34morg.springframework.orm.jpa.AbstractEntityManagerFactoryBean:419[0;39m : Initialized JPA EntityManagerFactory for persistence unit 'default'
