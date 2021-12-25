@@ -25,7 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //测试页面不需要授权
-        http.authorizeRequests().antMatchers("/test").permitAll().and().httpBasic().and().csrf().disable();
+        http.authorizeRequests().antMatchers("/oauth/test").permitAll().and().httpBasic().and().csrf().disable();
         //所有请求都需要授权才能访问
         http.authorizeRequests().anyRequest().authenticated()
                 .and().httpBasic().and().csrf().disable();
