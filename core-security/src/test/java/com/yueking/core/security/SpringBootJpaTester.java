@@ -33,25 +33,25 @@ public class SpringBootJpaTester {
     @Test
     void addPerm(){
         SysPermission p1 = new SysPermission();
-        p1.setPermName("addPerm");
+        p1.setPermName("addMember");
         p1.setPermTag("addMember");
         p1.setPermDesc("addPermDesc");
         permissionDao.saveAndFlush(p1);
 
         SysPermission p2 = new SysPermission();
-        p2.setPermName("delPerm");
+        p2.setPermName("delMember");
         p2.setPermTag("delMember");
         p2.setPermDesc("delPermDesc");
         permissionDao.saveAndFlush(p2);
 
         SysPermission p3 = new SysPermission();
-        p3.setPermName("updatePerm");
+        p3.setPermName("updateMember");
         p3.setPermTag("updateMember");
         p3.setPermDesc("updatePermDesc");
         permissionDao.saveAndFlush(p3);
 
         SysPermission p4 = new SysPermission();
-        p4.setPermName("showPerm");
+        p4.setPermName("showMember");
         p4.setPermTag("showMember");
         p4.setPermDesc("showPermDesc");
         permissionDao.saveAndFlush(p4);

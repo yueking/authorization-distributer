@@ -37,7 +37,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         //单点登录需要token验证通过
         // security.tokenKeyAccess("isAuthenticated()");
         security
-                .tokenKeyAccess("permitAll()")//oauth/token_key公开
+                .tokenKeyAccess("isAuthenticated()")//oauth/token_key 授权才能访问
                 .checkTokenAccess("permitAll()")//oauth/check_token公开
                 .allowFormAuthenticationForClients();//允许表单认证
     }
@@ -55,7 +55,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 //是否自动授权
                 .autoApprove(true)
                 .resourceIds("yueking_resource")
-                .redirectUris("http://localhost:8080/callback")
+                .redirectUris("http://localhost:8082/callback")
                 /**
                  * 授权码模式 简化模式 密码模式 客户端模式
                  * authorization_code refresh_token password client_credentials implicit
